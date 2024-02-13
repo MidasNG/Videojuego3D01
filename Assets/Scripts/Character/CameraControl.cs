@@ -9,6 +9,7 @@ public class CameraControl : MonoBehaviour
     private Rigidbody rb;
     private float sensitivity = 10;
     private float mouseMovementX;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
