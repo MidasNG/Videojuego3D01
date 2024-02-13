@@ -9,7 +9,7 @@ public class Interact : MonoBehaviour
     {
         if (Physics.SphereCast(transform.position - transform.rotation * new Vector3(0, 0, 2f), 2f, transform.forward, out RaycastHit hit, 2f))
         {
-            hit.collider.gameObject.GetComponent<Interactive>().Interact();
+            if(hit.collider.gameObject.GetComponent<Interactive>() != null) hit.collider.gameObject.GetComponent<Interactive>().Interact();
         }
     }
 }
