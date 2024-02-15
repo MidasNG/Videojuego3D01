@@ -6,10 +6,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Vector2 moveVector;
     private Rigidbody rb;
-    private float moveSpeed = 5f, jumpForce = 5f;
+    private Vector2 moveVector;
     private bool running, quicksand;
+    private float moveSpeed = 5f, jumpSpeed = 5f;
 
     void Start()
     {
@@ -34,17 +34,13 @@ public class PlayerControl : MonoBehaviour
 
     private void OnJump()
     {
-        /*if (Physics.SphereCast(transform.position, .4f, new Vector3(0, -1f, 0), out RaycastHit a, 1f))
-        {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
-        }*/
         if (quicksand)
         {
             foreach (Collider collider in Physics.OverlapCapsule(transform.position - new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0), .5f))
             {
                 if (collider.CompareTag("quicksand"))
                 {
-                    rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+                    rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
                     break;
                 }
             }
@@ -52,7 +48,7 @@ public class PlayerControl : MonoBehaviour
 
         else if (Physics.SphereCast(transform.position, .4f, new Vector3(0, -1f, 0), out RaycastHit a, 1f))
         {
-            rb.velocity = new Vector3(rb.velocity.x, jumpForce, rb.velocity.z);
+            rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
 
     }

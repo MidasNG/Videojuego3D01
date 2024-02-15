@@ -7,10 +7,12 @@ public class Lever : Interactive
 {
     private float t;
     private bool active;
-    private Coroutine coroutine;
+    [SerializeField] private GameObject target;
+
     public override void Interact() //Sobreescribir el método para que sea diferente para cada tipo de objeto
     {
         active = !active;
+        if (target.GetComponent<TrapActivation>() != null) target.GetComponent<TrapActivation>().Activate();
         t = 0;
     }
 
