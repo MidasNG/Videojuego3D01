@@ -18,6 +18,9 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        if (running) moveSpeed = 10f;
+        else moveSpeed = 5f;
+
         if (quicksand) rb.velocity = transform.rotation * new Vector3(Mathf.Clamp(moveVector.x * moveSpeed, -1, 1), Mathf.Clamp(rb.velocity.y, -0.5f, 2), Mathf.Clamp(moveVector.y * moveSpeed, -1, 1));
         else rb.velocity = transform.rotation * new Vector3(moveVector.x * moveSpeed, rb.velocity.y, moveVector.y * moveSpeed);
     }
@@ -55,12 +58,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        quicksand = true;
+        if (other.CompareTag("quicksand")) quicksand = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        quicksand = false;
+        if (other.CompareTag("quicksand")) quicksand = false;
     }
 
 }

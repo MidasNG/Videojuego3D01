@@ -13,6 +13,7 @@ public class Lever : Interactive
     {
         active = !active;
         if (target.GetComponent<TrapActivation>() != null) target.GetComponent<TrapActivation>().Activate();
+        if (target.GetComponent<Interactive>() != null) target.GetComponent<Interactive>().Interact();
         t = 0;
     }
 

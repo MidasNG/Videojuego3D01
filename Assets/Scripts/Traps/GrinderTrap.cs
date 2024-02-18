@@ -12,6 +12,6 @@ public class SpikeCylinder : MonoBehaviour
 
     void Update()
     {
-        rb.MoveRotation(Quaternion.Euler(180 * Time.deltaTime, 0, 0));
+        rb.AddTorque(360 * Time.deltaTime, 0, 0);
     }
 }
