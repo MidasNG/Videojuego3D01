@@ -25,7 +25,7 @@ public class Dialogue : Interactive
 
     private IEnumerator Speech()
     {
-        for (int i = 0; i < textList.Count;)
+        for (int i = 0; i < textBoxAmount;)
         {
             currentBox = newBox;
             for (int j = 0; j < textList[currentBox].ToCharArray().Length; j++)
