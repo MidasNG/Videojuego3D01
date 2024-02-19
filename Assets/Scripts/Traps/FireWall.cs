@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class FireWall : Interactive
 {
+
+    private void Start()
+    {
+        
+    }
+
     public override void Interact()
     {
         StartCoroutine(Activate());

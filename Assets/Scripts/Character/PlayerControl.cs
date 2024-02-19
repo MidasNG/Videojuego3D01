@@ -38,13 +38,16 @@ public class PlayerControl : MonoBehaviour
     {
         running = !running;
 
+       
+
         if (anim != null)
         {
             if (running)
             {
                 anim.SetBool("sprint", true);
+              
             }
-            else anim.SetBool("sprint", false);
+            else anim.SetBool("sprint", false); 
         }
     }
 
@@ -63,7 +66,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        else if (Physics.SphereCast(transform.position, .24f, new Vector3(0, -1f, 0), out RaycastHit a, .6f))
+        else if (Physics.SphereCast(transform.position, .24f, new Vector3(0, -1f, 0), out RaycastHit a, 2f))
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
