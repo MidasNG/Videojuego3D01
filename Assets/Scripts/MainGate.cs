@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainGate : Interactive
+public class MainGate : MonoBehaviour
 {
     [SerializeField] private bool runeA, runeB, runeC, runeD;
     private float speed = 5f, t;
@@ -16,8 +16,23 @@ public class MainGate : Interactive
         }
     }
 
-    public override void Interact()
+    public void GetRune(char rune)
     {
-        runeD = true;
+        if (rune.Equals("A"))
+        {
+            runeA = true;
+        }
+        else if (rune.Equals("B"))
+        {
+            runeB = true;
+        }
+        else if (rune.Equals("C"))
+        {
+            runeC = true;
+        }
+        else if (rune.Equals("D"))
+        {
+            runeD = true;
+        }
     }
 }
