@@ -37,19 +37,20 @@ public class PlayerControl : MonoBehaviour
     private void OnRun()
     {
         running = !running;
+
         if (anim != null)
         {
-            if (!running)
+            if (running)
             {
-                anim.SetBool("run", true);
+                anim.SetBool("sprint", true);
             }
-            else anim.SetBool("run", false);
+            else anim.SetBool("sprint", false);
         }
     }
 
     private void OnJump()
     {
-        if (anim != null) anim.SetBool("jump", true);
+        if (anim != null) 
         if (quicksand)
         {
             foreach (Collider collider in Physics.OverlapCapsule(transform.position - new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0), .5f))
@@ -66,7 +67,7 @@ public class PlayerControl : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
