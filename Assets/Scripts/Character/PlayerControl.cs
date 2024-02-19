@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.ProBuilder.MeshOperations;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -78,6 +80,12 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
         
+    }
+
+    private void OnExit()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(0);
     }
 
     private void OnTriggerEnter(Collider other)

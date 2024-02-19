@@ -13,12 +13,6 @@ public class Rune : Interactive
    public override void Interact()
    {
         StartCoroutine(RuneObtained());
-        if (redRune != null && blueRune != null)
-        {
-            redRune.SetActive(false);
-            blueRune.SetActive(true);
-        }
-        
         if (Gate != null)
         {
             Gate.GetRune(rune);
@@ -32,7 +26,13 @@ public class Rune : Interactive
             targetCamera.enabled = true;
             playerCamera.enabled = false;
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2.5f);
+            if (redRune != null && blueRune != null)
+            {
+                redRune.SetActive(false);
+                blueRune.SetActive(true);
+            }
+            yield return new WaitForSeconds(2.5f);
 
             targetCamera.enabled = false;
             playerCamera.enabled = true;

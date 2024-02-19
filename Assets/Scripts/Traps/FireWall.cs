@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class FireWall : TrapActivation
 {
+    private void Start()
+    {
+        foreach (ParticleSystem fire in GetComponentsInChildren<ParticleSystem>())
+        {
+            fire.Stop();
+        }
+    }
+
     public override void Activate()
     {
         StartCoroutine(StartMove());
@@ -12,7 +20,13 @@ public class FireWall : TrapActivation
 
     private IEnumerator StartMove()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(4);
+
+        foreach (ParticleSystem fire in GetComponentsInChildren<ParticleSystem>())
+        {
+            fire.Play();
+        }
+
         float t = 0;
         while (true)
         {

@@ -40530,6 +40530,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 576765582}
     m_Modifications:
+    - target: {fileID: 527836587829449947, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107592719182220522, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1612486493039303607, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2173467977905921646, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2231168419839200226, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
       propertyPath: m_Name
       value: FireWall
@@ -40537,6 +40553,34 @@ PrefabInstance:
     - target: {fileID: 2231168419839200226, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
       propertyPath: m_TagString
       value: hazard
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661152495161668629, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768552334590608886, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773297316538611020, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892392904112032647, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468556156184658272, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5546405695962559431, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001048792359494219, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6160170109654168493, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40597,6 +40641,26 @@ PrefabInstance:
     - target: {fileID: 6184936271871490249, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
       propertyPath: m_Center.y
       value: 4.9567957
+      objectReference: {fileID: 0}
+    - target: {fileID: 6653103958510598910, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192255468019006803, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7452973244301921262, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570452804368279940, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604030902740768329, guid: ee31fb3df22849c4c93d797ef25f51d8, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
