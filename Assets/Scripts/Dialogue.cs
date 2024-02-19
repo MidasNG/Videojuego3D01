@@ -9,8 +9,10 @@ public class Dialogue : Interactive
     private int textBoxAmount, currentBox, newBox;
 
     [SerializeField] private string textShown;
-    [SerializeField] private TextMeshProUGUI target;
+    [SerializeField] private Rigidbody player;
     [SerializeField] private List<string> textList;
+    [SerializeField] private TextMeshProUGUI target;
+    [SerializeField] private Camera targetCamera, playerCamera;
 
     void Start()
     {
@@ -19,8 +21,25 @@ public class Dialogue : Interactive
 
     public override void Interact()
     {
-        if (speaking == null) speaking = StartCoroutine(Speech());
-        else if (newBox < textBoxAmount-1) newBox++;
+        if (speaking == null)
+        {
+            speaking = StartCoroutine(Speech());
+            if (targetCamera != null && playerCamera != null)
+            {
+                player.maxLinearVelocity = 0;
+                targetCamera.enabled = true;
+                playerCamera.enabled = false;
+            }
+        }
+
+        else if (newBox < textBoxAmount - 1) newBox++;
+
+        else if (targetCamera != null && playerCamera != null)
+        {
+            player.maxLinearVelocity = 100;
+            targetCamera.enabled = false;
+            playerCamera.enabled = true;
+        }
     }
 
     private IEnumerator Speech()
@@ -39,5 +58,6 @@ public class Dialogue : Interactive
             yield return new WaitUntil(() => newBox > currentBox);
             textShown = null;
         }
+        yield return null;
     }
 }

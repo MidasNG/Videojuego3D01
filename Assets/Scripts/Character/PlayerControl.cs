@@ -63,7 +63,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        else if (Physics.SphereCast(transform.position, .4f, new Vector3(0, -1f, 0), out RaycastHit a, 1f))
+        else if (Physics.SphereCast(transform.position, .24f, new Vector3(0, -1f, 0), out RaycastHit a, .6f))
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
