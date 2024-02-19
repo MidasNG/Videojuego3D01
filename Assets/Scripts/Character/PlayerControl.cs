@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector2 moveVector;
-    private bool running, quicksand;
+    private bool sprinting, quicksand;
     private float moveSpeed = 5f, jumpSpeed = 5f;
     private Animator anim;
 
@@ -22,11 +22,30 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if (running) moveSpeed = 10f;
+        if (sprinting) moveSpeed = 10f;
         else moveSpeed = 5f;
 
         if (quicksand) rb.velocity = transform.rotation * new Vector3(Mathf.Clamp(moveVector.x * moveSpeed, -1, 1), Mathf.Clamp(rb.velocity.y, -0.5f, 2), Mathf.Clamp(moveVector.y * moveSpeed, -1, 1));
         else rb.velocity = transform.rotation * new Vector3(moveVector.x * moveSpeed, rb.velocity.y, moveVector.y * moveSpeed);
+
+        if(anim != null && moveVector.magnitude != 0) 
+        {
+            if (sprinting)
+            {
+                anim.SetBool("run", false);
+                anim.SetBool("sprint", true);
+            }
+            else
+            {
+                anim.SetBool("run", true);
+                anim.SetBool("sprint", false);
+            }
+        }
+        else
+        {
+            anim.SetBool("run", false);
+            anim.SetBool("sprint", false);
+        }
     }
 
     private void OnMovement(InputValue value)
@@ -36,24 +55,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnRun()
     {
-        running = !running;
-
-       
-
-        if (anim != null)
-        {
-            if (running)
-            {
-                anim.SetBool("sprint", true);
-              
-            }
-            else anim.SetBool("sprint", false); 
-        }
+        sprinting = !sprinting;
     }
 
     private void OnJump()
     {
-        if (anim != null) 
+        if (anim != null) anim.SetTrigger("jump");
         if (quicksand)
         {
             foreach (Collider collider in Physics.OverlapCapsule(transform.position - new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0), .5f))
@@ -66,7 +73,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        else if (Physics.SphereCast(transform.position, .24f, new Vector3(0, -1f, 0), out RaycastHit a, 2f))
+        else if (Physics.SphereCast(transform.position + new Vector3(0, .5f, 0), .4f, new Vector3(0, -1f, 0), out RaycastHit a, .5f))
         {
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
