@@ -7,11 +7,17 @@ public class Rune : Interactive
     [SerializeField] private char rune;
     [SerializeField] private MainGate Gate;
     [SerializeField] private TrapActivation targetTrap;
+    [SerializeField] private GameObject redRune, blueRune;
     [SerializeField] private Camera targetCamera, playerCamera;
 
    public override void Interact()
    {
         StartCoroutine(RuneObtained());
+        if (redRune != null && blueRune != null)
+        {
+            redRune.SetActive(false);
+            blueRune.SetActive(true);
+        }
         
         if (Gate != null)
         {
