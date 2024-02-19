@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Dialogue : Interactive
 {
+    private string textShown;
     private Coroutine speaking;
     private int textBoxAmount, currentBox, newBox;
 
-    [SerializeField] private string textShown;
     [SerializeField] private Rigidbody player;
     [SerializeField] private List<string> textList;
     [SerializeField] private TextMeshProUGUI target;
@@ -17,6 +17,7 @@ public class Dialogue : Interactive
     void Start()
     {
         textBoxAmount = textList.Count;
+        target.transform.parent.gameObject.SetActive(false);
     }
 
     public override void Interact()
@@ -36,6 +37,8 @@ public class Dialogue : Interactive
 
         else if (targetCamera != null && playerCamera != null)
         {
+            textShown = null;
+            target.transform.parent.gameObject.SetActive(false);
             player.maxLinearVelocity = 100;
             targetCamera.enabled = false;
             playerCamera.enabled = true;
@@ -44,6 +47,7 @@ public class Dialogue : Interactive
 
     private IEnumerator Speech()
     {
+        target.transform.parent.gameObject.SetActive(true);
         for (int i = 0; i < textBoxAmount;)
         {
             currentBox = newBox;
@@ -52,7 +56,7 @@ public class Dialogue : Interactive
                 if (newBox > currentBox) break;
                 textShown = textShown + textList[currentBox].ToCharArray()[j].ToString();
                 if (target != null) target.text = textShown;
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(.03f);
             }
             Debug.Log("Esperando interacción");
             yield return new WaitUntil(() => newBox > currentBox);

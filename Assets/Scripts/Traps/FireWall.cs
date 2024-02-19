@@ -14,14 +14,14 @@ public class FireWall : TrapActivation
 
     public override void Activate()
     {
-        StartCoroutine(StartMove());
-        GetComponent<Collider>().enabled = true;
+        StartCoroutine(StartMove());        
     }
 
     private IEnumerator StartMove()
     {
         yield return new WaitForSeconds(4);
 
+        GetComponent<Collider>().enabled = true;
         foreach (ParticleSystem fire in GetComponentsInChildren<ParticleSystem>())
         {
             fire.Play();

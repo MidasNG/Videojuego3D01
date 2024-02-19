@@ -48,6 +48,12 @@ public class PlayerControl : MonoBehaviour
             anim.SetBool("run", false);
             anim.SetBool("sprint", false);
         }
+
+        if (transform.position.y < -40) 
+        {
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void OnMovement(InputValue value)
