@@ -5,7 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.ProBuilder.MeshOperations;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
@@ -68,7 +67,6 @@ public class PlayerControl : MonoBehaviour
 
     private void OnJump()
     {
-        if (anim != null) anim.SetTrigger("jump");
         if (quicksand)
         {
             foreach (Collider collider in Physics.OverlapCapsule(transform.position - new Vector3(0, 1, 0), transform.position + new Vector3(0, 1, 0), .5f))
@@ -83,6 +81,7 @@ public class PlayerControl : MonoBehaviour
 
         else if (Physics.SphereCast(transform.position + new Vector3(0, .5f, 0), .4f, new Vector3(0, -1f, 0), out RaycastHit a, .5f))
         {
+            if (anim != null) anim.SetTrigger("jump");
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
         

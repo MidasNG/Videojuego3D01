@@ -1,21 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Rune : Interactive
 {
-    [SerializeField] private char rune;
+    private bool activated;
+
+    [SerializeField] private string rune;
     [SerializeField] private MainGate Gate;
+    [SerializeField] private GameObject player;
     [SerializeField] private TrapActivation targetTrap;
     [SerializeField] private GameObject redRune, blueRune;
     [SerializeField] private Camera targetCamera, playerCamera;
 
    public override void Interact()
    {
-        StartCoroutine(RuneObtained());
-        if (Gate != null)
+        if (!activated)
         {
-            Gate.GetRune(rune);
+            activated = true;
+            StartCoroutine(RuneObtained());
+            if (Gate != null)
+            {
+                Gate.GetRune(rune);
+            }
         }
    }
 
@@ -25,6 +33,7 @@ public class Rune : Interactive
         {
             targetCamera.enabled = true;
             playerCamera.enabled = false;
+            player.GetComponent<PlayerInput>().DeactivateInput();
 
             yield return new WaitForSeconds(2.5f);
             if (redRune != null && blueRune != null)
@@ -36,9 +45,10 @@ public class Rune : Interactive
 
             targetCamera.enabled = false;
             playerCamera.enabled = true;
+            player.GetComponent<PlayerInput>().ActivateInput();
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         if (targetTrap != null)
         {

@@ -16,21 +16,21 @@ public class MainGate : MonoBehaviour
         }
     }
 
-    public void GetRune(char rune)
+    public void GetRune(string rune)
     {
-        if (rune.Equals("A"))
+        if (rune == "A")
         {
             runeA = true;
         }
-        else if (rune.Equals("B"))
+        else if (rune == "B")
         {
             runeB = true;
         }
-        else if (rune.Equals("C"))
+        else if (rune == "C")
         {
             runeC = true;
         }
-        else if (rune.Equals("D"))
+        else if (rune == "D")
         {
             runeD = true;
         }

@@ -2,7 +2,7 @@
     "name": "PlayerControl",
     "maps": [
         {
-            "name": "General",
+            "name": "normalActions",
             "id": "28614ff3-13a9-47ea-b366-789a97adefb6",
             "actions": [
                 {
@@ -162,6 +162,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f8a340cf-b889-47fe-8cf2-bb6a75763a49",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "88dcd5d4-dcec-43a9-95a8-908b565fffe7",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -223,6 +234,45 @@
                     "processors": "",
                     "groups": "",
                     "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "dialogueActions",
+            "id": "08f3e4af-772e-4838-9c3a-b86285d7d3c4",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "a4c6ed9a-1f1d-4d2e-949c-2cb790d21501",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "22ffa05a-2bc0-47ac-9bca-8df98adf023e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6fa5eeeb-eb57-48bb-8096-e36cb0ba7a94",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

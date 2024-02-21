@@ -182,7 +182,7 @@ PrefabInstance:
       addedObject: {fileID: -5943690848728902838}
     - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -490546667056677374}
+      addedObject: {fileID: 2639475570278578854}
     - targetCorrespondingSourceObject: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6883885868549035518}
@@ -227,7 +227,7 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.72, z: 0}
---- !u!114 &-490546667056677374
+--- !u!114 &2639475570278578854
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: General
+  m_DefaultActionMap: normalActions
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &6883885868549035518

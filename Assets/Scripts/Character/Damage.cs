@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
@@ -14,6 +13,7 @@ public class Damage : MonoBehaviour
         if (other.gameObject.CompareTag("hazard"))
         {
             health--;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(0);
         }
     }

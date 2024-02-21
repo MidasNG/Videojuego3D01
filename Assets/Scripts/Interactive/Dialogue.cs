@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Dialogue : Interactive
 {
@@ -9,7 +10,7 @@ public class Dialogue : Interactive
     private Coroutine speaking;
     private int textBoxAmount, currentBox, newBox;
 
-    [SerializeField] private Rigidbody player;
+    [SerializeField] private GameObject player;
     [SerializeField] private List<string> textList;
     [SerializeField] private TextMeshProUGUI target;
     [SerializeField] private Camera targetCamera, playerCamera;
@@ -17,7 +18,6 @@ public class Dialogue : Interactive
     void Start()
     {
         textBoxAmount = textList.Count;
-        target.transform.parent.gameObject.SetActive(false);
     }
 
     public override void Interact()
@@ -27,7 +27,7 @@ public class Dialogue : Interactive
             speaking = StartCoroutine(Speech());
             if (targetCamera != null && playerCamera != null)
             {
-                player.maxLinearVelocity = 0;
+                player.GetComponent<PlayerInput>().SwitchCurrentActionMap("dialogueActions");
                 targetCamera.enabled = true;
                 playerCamera.enabled = false;
             }
@@ -39,7 +39,7 @@ public class Dialogue : Interactive
         {
             textShown = null;
             target.transform.parent.gameObject.SetActive(false);
-            player.maxLinearVelocity = 100;
+            player.GetComponent<PlayerInput>().SwitchCurrentActionMap("normalActions");
             targetCamera.enabled = false;
             playerCamera.enabled = true;
         }
