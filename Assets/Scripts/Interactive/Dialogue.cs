@@ -20,6 +20,11 @@ public class Dialogue : Interactive
         textBoxAmount = textList.Count;
     }
 
+    private void Update()
+    {
+        
+    }
+
     public override void Interact()
     {
         if (speaking == null)

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - quicksand
   - hazard
+  - fantasma
   layers:
   - Default
   - TransparentFX
