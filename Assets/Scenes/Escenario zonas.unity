@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.446576, g: 0.49641168, b: 0.5748166, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657576, g: 0.49641144, b: 0.5748166, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8183,10 +8183,10 @@ MonoBehaviour:
   player: {fileID: 244492399}
   textList:
   - 'Hola viajero.  Necesito tu ayuda. '
-  - "Estaba explorando la cueva y he perdido las gemas que llevaba en los bolsillos.
-    Necesito que re\xFAnas todas las gemas y que me las traigas. "
-  - "Si lo consigues, te abrir\xE9 la puerta del castillo. Hay una leyenda que dice
-    que hay un gran tesoro."
+  - 'Estaba explorando la cueva y he perdido las gemas que llevaba en los bolsillos.
+    Necesito que reunas todas las gemas y que me las traigas. '
+  - Si lo consigues, te abrire la puerta del castillo. Hay una leyenda que dice que
+    hay un gran tesoro.
   target: {fileID: 414377632}
   targetCamera: {fileID: 726652979}
   playerCamera: {fileID: 876084317}
@@ -8210,9 +8210,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 2.3106966
+  m_Height: 1.6609766
   m_Direction: 1
-  m_Center: {x: 0, y: 0.65534806, z: 0}
+  m_Center: {x: 0, y: 0.98020804, z: 0}
 --- !u!1001 &203279356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43508,7 +43508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.47
+      value: -8.27
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44842,7 +44842,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -57658,9 +57658,9 @@ MonoBehaviour:
   player: {fileID: 244492399}
   textList:
   - Por cierto, se me ha olvidado avisarte.
-  - "La cueva est\xE1 llena de trampas, plataformas y obst\xE1culos."
-  - "Para superarlas necesitas ser h\xE1bil, tener mucho cuidado y estar muy atento."
-  - "Aunque dudo que a un viajero como t\xFA le cueste, mucha suerte."
+  - La cueva esta llena de trampas, plataformas y obstaculos.
+  - Para superarlas necesitas ser habil, tener mucho cuidado y estar muy atento.
+  - Aunque dudo que a un viajero como tu le cueste, mucha suerte.
   target: {fileID: 414377632}
   targetCamera: {fileID: 1106008782}
   playerCamera: {fileID: 876084317}
@@ -65384,47 +65384,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8000001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.7369
+      value: 15.266
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.79
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.231928
+      value: -4.195
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.36154336
+      value: 0.39045244
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.014772203
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.93235534
+      value: 0.9198473
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.034778852
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 4.331
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 137.61
+      value: 134
       objectReference: {fileID: 0}
     - target: {fileID: 6391164779401040102, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 6732455068393080094, guid: 4cf5794db5b11114a8feef9249347a63, type: 3}
       propertyPath: m_Controller
