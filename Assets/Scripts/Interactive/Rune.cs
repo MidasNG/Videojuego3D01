@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Rune : Interactive
 {
     private bool activated;
+    public AudioSource clip;
 
     [SerializeField] private string rune;
     [SerializeField] private MainGate Gate;
@@ -39,6 +40,7 @@ public class Rune : Interactive
             if (redRune != null && blueRune != null)
             {
                 redRune.SetActive(false);
+                clip.Play();
                 blueRune.SetActive(true);
             }
             yield return new WaitForSeconds(2.5f);

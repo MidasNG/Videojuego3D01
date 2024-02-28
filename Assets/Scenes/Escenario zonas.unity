@@ -10630,6 +10630,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+--- !u!82 &244492403
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244492399}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6322d02a3c00c4342983bdfc9722f1b3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &245457374 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4420938446259344, guid: 3fce99634b729594d89ee5e872b73dff, type: 3}
@@ -25233,6 +25329,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6883885868549035518, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 244492403}
     - target: {fileID: 7445150906067736629, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
       propertyPath: m_Name
       value: Jugador
@@ -25308,6 +25408,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7445150906067736629, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
       insertIndex: -1
       addedObject: {fileID: 244492401}
+    - targetCorrespondingSourceObject: {fileID: 7445150906067736629, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 244492403}
     - targetCorrespondingSourceObject: {fileID: 6863810147991320383, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1873816317}
@@ -64311,7 +64414,9 @@ MonoBehaviour:
   player: {fileID: 244492399}
   textList:
   - Por cierto, se me ha olvidado avisarte.
-  - La cueva esta llena de trampas, plataformas y obstaculos.
+  - "La cueva esta llena de trampas, plataformas y obstaculos que tendr\xE1s que
+    superar para conseguir las gemas."
+  - "Cada vez que consigas una gema, la runa encima de la sala se activar\xE1."
   - Para superarlas necesitas ser habil, tener mucho cuidado y estar muy atento.
   - Aunque dudo que a un viajero como tu le cueste, mucha suerte.
   target: {fileID: 414377632}
@@ -65213,6 +65318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8600d57b6895d47b780f9624ace200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
   rune: 
   Gate: {fileID: 1195393827}
   player: {fileID: 244492399}
@@ -86965,7 +87071,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a5b46a512b09b348a587ae7d3377ed4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -95391,6 +95497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8600d57b6895d47b780f9624ace200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
   rune: A
   Gate: {fileID: 1195393827}
   player: {fileID: 244492399}
@@ -96240,6 +96347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8600d57b6895d47b780f9624ace200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
   rune: C
   Gate: {fileID: 1195393827}
   player: {fileID: 244492399}

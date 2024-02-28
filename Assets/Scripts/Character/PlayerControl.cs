@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+    public AudioSource clip;
     private Rigidbody rb;
     private Vector2 moveVector;
     private bool sprinting, quicksand;
@@ -33,6 +34,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (sprinting)
             {
+                clip.Play();
                 anim.SetBool("run", false);
                 anim.SetBool("sprint", true);
             }
@@ -63,6 +65,7 @@ public class PlayerControl : MonoBehaviour
     private void OnRun()
     {
         sprinting = !sprinting;
+        
     }
 
     private void OnJump()
