@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44794983, g: 0.49795318, b: 0.5754889, a: 1}
+  m_IndirectSpecularColor: {r: 0.44794983, g: 0.49795318, b: 0.575489, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -25445,6 +25445,10 @@ PrefabInstance:
       propertyPath: m_DefaultActionMap
       value: normalActions
       objectReference: {fileID: 0}
+    - target: {fileID: 659262663699284539, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1450989125}
     - target: {fileID: 2324501090161841620, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
       propertyPath: m_Depth
       value: 0
@@ -25458,7 +25462,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6883885868549035518, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 554068482}
+    - target: {fileID: 6883885868549035518, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
       propertyPath: clip
+      value: 
+      objectReference: {fileID: 244492403}
+    - target: {fileID: 6883885868549035518, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+      propertyPath: clipSource
       value: 
       objectReference: {fileID: 244492403}
     - target: {fileID: 7445150906067736629, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
@@ -25555,6 +25567,22 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1873816316}
   m_SourcePrefab: {fileID: 100100000, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+--- !u!54 &554068482 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4668134344109056174, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+  m_PrefabInstance: {fileID: 554068481}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &554068483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 659262663699284539, guid: b15ed3f4b84acbb43a6551c62650c288, type: 3}
+  m_PrefabInstance: {fileID: 554068481}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244492399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857f567e9ebc41e409f2003d68df5c03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &554914995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68117,9 +68145,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4664030433186265286, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554068483}
+    - target: {fileID: 4664030433186265286, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664030433186265286, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Exit, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664030433186265286, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5485743018025659149, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813006382745144193, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 554068483}
+    - target: {fileID: 6813006382745144193, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LeaveToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813006382745144193, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Exit, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813006382745144193, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7162651605934926474, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
       propertyPath: m_fontSize
@@ -68208,6 +68268,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1450989125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5724839043386865474, guid: 783396b670c654f47b9b65a164ac0c06, type: 3}
+  m_PrefabInstance: {fileID: 1450989121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1452506797
 PrefabInstance:
   m_ObjectHideFlags: 0

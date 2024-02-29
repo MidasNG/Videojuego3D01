@@ -94,13 +94,7 @@ public class PlayerControl : MonoBehaviour
             if (anim != null) anim.SetTrigger("jump");
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
-        
-    }
 
-    private void OnExit()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(0);
     }
 
     private void OnTriggerEnter(Collider other)
