@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +21,8 @@ public class Rune : Interactive
         {
             activated = true;
             StartCoroutine(RuneObtained());
+            GetComponent<ExtraMessages>()?.Talk();
+
             if (Gate != null)
             {
                 Gate.GetRune(rune);

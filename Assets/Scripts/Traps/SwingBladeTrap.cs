@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwingBladeTrap : TrapActivation
 {
     private float t;
+    [SerializeField] private int value;
     [SerializeField] private bool startOnPlay;
     [SerializeField] private AnimationCurve curve;
 
@@ -25,7 +26,7 @@ public class SwingBladeTrap : TrapActivation
             while (t < 1)
             {
                 t += Time.deltaTime;
-                transform.eulerAngles = new Vector3 (0, 0, Mathf.Lerp(-45, 45, curve.Evaluate(t)));
+                transform.eulerAngles = new Vector3 (0, 0, value * Mathf.Lerp(-25, 25, curve.Evaluate(t)));
                 yield return new WaitForEndOfFrame();
             }
 
@@ -35,7 +36,7 @@ public class SwingBladeTrap : TrapActivation
             while (t < 1)
             {
                 t += Time.deltaTime;
-                transform.eulerAngles = new Vector3(0, 0, Mathf.Lerp(45, -45, curve.Evaluate(t)));
+                transform.eulerAngles = new Vector3(0, 0, value *Mathf.Lerp(25, -25, curve.Evaluate(t)));
                 yield return new WaitForEndOfFrame();
             }
 

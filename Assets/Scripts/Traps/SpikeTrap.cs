@@ -1,12 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpikeTrap : MonoBehaviour
 {
     private float t, speed = 10f;
+    [SerializeField] private float offset;
 
     private void Start()
     {
@@ -19,10 +17,10 @@ public class SpikeTrap : MonoBehaviour
         {
             t = 0;
             StartCoroutine(Activate());
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2 + offset/2);
             t = 0;
             StartCoroutine(Deactivate());
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2 + offset/2);
         }
     }
 
@@ -31,7 +29,7 @@ public class SpikeTrap : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime * speed / 3;
-            transform.localPosition = new Vector3(0, Mathf.Lerp(0, -2.1f, t), 0);
+            transform.localPosition = new Vector3(0, Mathf.Lerp(0, -3f, t), 0);
             yield return new WaitForEndOfFrame();
         }
     }
@@ -41,7 +39,7 @@ public class SpikeTrap : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime * speed;
-            transform.localPosition = new Vector3(0, Mathf.Lerp(-2.1f, 0, t), 0);
+            transform.localPosition = new Vector3(0, Mathf.Lerp(-3f, 0, t), 0);
             yield return new WaitForEndOfFrame();
         }
     }
