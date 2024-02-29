@@ -32,22 +32,29 @@ public class PlayerControl : MonoBehaviour
 
         if(anim != null && moveVector.magnitude != 0) 
         {
-            if (sprinting)
+            if (!clip.isPlaying)
             {
                 clip.Play();
+            }                
+            
+            if (sprinting)
+            {
                 anim.SetBool("run", false);
                 anim.SetBool("sprint", true);
+                clip.pitch = 1;
             }
             else
             {
                 anim.SetBool("run", true);
                 anim.SetBool("sprint", false);
+                clip.pitch = 0.7f;
             }
         }
         else
         {
             anim.SetBool("run", false);
             anim.SetBool("sprint", false);
+            clip.Stop();
         }
 
         if (transform.position.y < -40) 
