@@ -32,5 +32,13 @@ public class MainGate : MonoBehaviour
         {
             runeD = true;
         }
+
+        else if (rune == "CLEAR")
+        {
+            runeA = false;
+            runeB = false;
+            runeC = false;
+            runeD = false;
+        }
     }
 }

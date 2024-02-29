@@ -8,6 +8,7 @@ TagManager:
   - hazard
   - fantasma
   - loadmaps
+  - activatingTrigger
   layers:
   - Default
   - TransparentFX

@@ -21,8 +21,13 @@ public class ExtraMessages : MonoBehaviour
     {
         runeAmount++;
 
-        if (runeAmount == 4) textList.Add("¡Ya esta abierta la puerta del tesoro!");
-        else textList.Add("¡Te quedan " + (4-runeAmount) + "!");
+        if (runeAmount == 4)
+        {
+            textList.Add("¡Muachas gracias por ayudarme!");
+            textList.Add("Ya esta abierta la puerta del tesoro.");
+            textBoxAmount++;
+        }
+        else textList.Add("¡Te quedan " + (4 - runeAmount) + " runas!");
 
         textBoxAmount++;
 

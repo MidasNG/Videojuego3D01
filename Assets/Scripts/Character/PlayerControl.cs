@@ -98,6 +98,12 @@ public class PlayerControl : MonoBehaviour
         if (other.CompareTag("quicksand")) quicksand = true;
 
         else if (other.CompareTag("loadmaps")) other.GetComponent<LoadMaps>()?.LoadUnload();
+
+        else if (other.CompareTag("activatingTrigger"))
+        {
+            other.GetComponent<CloseDoor>()?.Activate();
+            other.GetComponent<DeleteTreasure>()?.Activate();
+        }
     }
 
     private void OnTriggerExit(Collider other)
