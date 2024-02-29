@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41799a29305f23243b807109858eb7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clip: {fileID: 0}
 --- !u!114 &6217412897054170748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ee609df15f81f4c8adec3efe7453b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  emptyHeart: {fileID: 21300002, guid: fed24bd82cefc0c4a8ef64dab6231b53, type: 3}
 --- !u!114 &-1748997953924725058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724a3e7124b1469419524fb79ad116f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactText: {fileID: 0}
 --- !u!54 &4668134344109056174
 Rigidbody:
   m_ObjectHideFlags: 0

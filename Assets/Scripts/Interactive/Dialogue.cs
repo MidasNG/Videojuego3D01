@@ -20,15 +20,11 @@ public class Dialogue : Interactive
         textBoxAmount = textList.Count;
     }
 
-    private void Update()
-    {
-        
-    }
-
     public override void Interact()
     {
         if (speaking == null)
         {
+            player.GetComponent<PlayerControl>().DialogueFreeze(true);
             speaking = StartCoroutine(Speech());
             if (targetCamera != null && playerCamera != null)
             {
@@ -42,9 +38,17 @@ public class Dialogue : Interactive
 
         else if (targetCamera != null && playerCamera != null)
         {
+            newBox = 0;
+
             textShown = null;
+            speaking = null;
+            StopAllCoroutines();
+
             target.transform.parent.gameObject.SetActive(false);
+
+            player.GetComponent<PlayerControl>().DialogueFreeze(false);
             player.GetComponent<PlayerInput>().SwitchCurrentActionMap("normalActions");
+
             targetCamera.enabled = false;
             playerCamera.enabled = true;
         }
@@ -53,7 +57,7 @@ public class Dialogue : Interactive
     private IEnumerator Speech()
     {
         target.transform.parent.gameObject.SetActive(true);
-        for (int i = 0; i < textBoxAmount;)
+        for (int i = 0; i < textBoxAmount; i++)
         {
             currentBox = newBox;
             for (int j = 0; j < textList[currentBox].ToCharArray().Length; j++)
@@ -63,7 +67,6 @@ public class Dialogue : Interactive
                 if (target != null) target.text = textShown;
                 yield return new WaitForSeconds(.03f);
             }
-            Debug.Log("Esperando interacción");
             yield return new WaitUntil(() => newBox > currentBox);
             textShown = null;
         }

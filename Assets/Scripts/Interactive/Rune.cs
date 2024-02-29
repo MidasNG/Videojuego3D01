@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 public class Rune : Interactive
 {
     private bool activated;
-    public AudioSource clip;
 
     [SerializeField] private string rune;
     [SerializeField] private MainGate Gate;
+    [SerializeField] private AudioClip clip;
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioSource clipSource;
     [SerializeField] private TrapActivation targetTrap;
     [SerializeField] private GameObject redRune, blueRune;
     [SerializeField] private Camera targetCamera, playerCamera;
@@ -40,7 +41,7 @@ public class Rune : Interactive
             if (redRune != null && blueRune != null)
             {
                 redRune.SetActive(false);
-                clip.Play();
+                if (clipSource != null && clip != null) clipSource.PlayOneShot(clip);
                 blueRune.SetActive(true);
             }
             yield return new WaitForSeconds(2.5f);

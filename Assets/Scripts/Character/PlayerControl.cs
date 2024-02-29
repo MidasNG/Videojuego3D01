@@ -9,12 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
-    public AudioSource clip;
-    private Rigidbody rb;
-    private Vector2 moveVector;
-    private bool sprinting, quicksand;
-    private float moveSpeed = 5f, jumpSpeed = 5f;
     private Animator anim;
+    private Vector2 moveVector;
+    [SerializeField] private Rigidbody rb;
+    private float moveSpeed = 5f, jumpSpeed = 5f;
+    [SerializeField] private AudioSource clipSource;
+    private bool sprinting, quicksand, jumping, freeze;
 
     void Start()
     {
@@ -28,39 +28,38 @@ public class PlayerControl : MonoBehaviour
         else moveSpeed = 5f;
 
         if (quicksand) rb.velocity = transform.rotation * new Vector3(Mathf.Clamp(moveVector.x * moveSpeed, -1, 1), Mathf.Clamp(rb.velocity.y, -0.5f, 2), Mathf.Clamp(moveVector.y * moveSpeed, -1, 1));
+
+        else if (Physics.SphereCast(transform.position - new Vector3(0, .5f, 0), .4f, Vector3.down, out RaycastHit hitInfo, .6f) && hitInfo.normal != Vector3.up && !jumping) rb.velocity = transform.rotation * new Vector3(moveVector.x * moveSpeed, Mathf.Clamp(rb.velocity.y, -100, .5f), moveVector.y * moveSpeed);
+
+        else if (rb.useGravity == false) rb.velocity = Vector3.zero;
+
         else rb.velocity = transform.rotation * new Vector3(moveVector.x * moveSpeed, rb.velocity.y, moveVector.y * moveSpeed);
 
-        if(anim != null && moveVector.magnitude != 0) 
+        if (anim != null && moveVector.magnitude != 0 && clipSource != null)
         {
-            if (!clip.isPlaying)
+            if (!clipSource.isPlaying)
             {
-                clip.Play();
-            }                
-            
+                clipSource.Play();
+            }
+
             if (sprinting)
             {
                 anim.SetBool("run", false);
                 anim.SetBool("sprint", true);
-                clip.pitch = 1;
+                clipSource.pitch = 1;
             }
-            else
+            else if (clipSource != null)
             {
                 anim.SetBool("run", true);
                 anim.SetBool("sprint", false);
-                clip.pitch = 0.7f;
+                clipSource.pitch = 0.7f;
             }
         }
         else
         {
             anim.SetBool("run", false);
             anim.SetBool("sprint", false);
-            clip.Stop();
-        }
-
-        if (transform.position.y < -40) 
-        {
-            Cursor.lockState = CursorLockMode.None;
-            SceneManager.LoadScene(0);
+            clipSource.Stop();
         }
     }
 
@@ -91,6 +90,7 @@ public class PlayerControl : MonoBehaviour
 
         else if (Physics.SphereCast(transform.position + new Vector3(0, .5f, 0), .4f, new Vector3(0, -1f, 0), out RaycastHit a, .5f))
         {
+            jumping = true;
             if (anim != null) anim.SetTrigger("jump");
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
@@ -106,6 +106,8 @@ public class PlayerControl : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("quicksand")) quicksand = true;
+
+        else if (other.CompareTag("loadmaps")) other.GetComponent<LoadMaps>()?.LoadUnload();
     }
 
     private void OnTriggerExit(Collider other)
@@ -113,4 +115,20 @@ public class PlayerControl : MonoBehaviour
         if (other.CompareTag("quicksand")) quicksand = false;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (Physics.SphereCast(transform.position - new Vector3(0, .5f, 0), .4f, Vector3.down, out RaycastHit hitInfo, .6f)) jumping = false;
+        if (freeze) rb.useGravity = false;
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (freeze) rb.useGravity = false;
+        else rb.useGravity = true;
+    }
+
+    public void DialogueFreeze(bool value)
+    {
+        freeze = value;
+    }
 }
