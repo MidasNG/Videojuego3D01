@@ -6,6 +6,7 @@ public class Rune : Interactive
 {
     private bool activated;
 
+    [SerializeField] private bool tomb;
     [SerializeField] private string rune;
     [SerializeField] private MainGate Gate;
     [SerializeField] private AudioClip clip;
@@ -50,6 +51,7 @@ public class Rune : Interactive
             targetCamera.enabled = false;
             playerCamera.enabled = true;
             player.GetComponent<PlayerInput>().ActivateInput();
+            if (tomb) player.transform.position = new Vector3(-28, -6.5f, -5);
         }
 
         yield return new WaitForSeconds(1);

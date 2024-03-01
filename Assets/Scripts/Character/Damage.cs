@@ -7,14 +7,13 @@ public class Damage : MonoBehaviour
 {
     private int health = 3;
     [SerializeField] private List<Image> hearts = new List<Image>();
-    [SerializeField] private Sprite emptyHeart;
 
     private void Update()
     {
         if (transform.position.y < -40)
         {
             health--;
-            hearts[health].sprite = emptyHeart;
+            hearts[health].gameObject.SetActive(false);
             transform.position = new Vector3(-28, -6.5f, -5);
         }
 
@@ -30,7 +29,7 @@ public class Damage : MonoBehaviour
         if (other.gameObject.CompareTag("hazard"))
         {
             health--;
-            hearts[health].sprite = emptyHeart;
+            hearts[health].gameObject.SetActive(false);
         }
     }
 }

@@ -7,14 +7,24 @@ public class ExtraMessages : MonoBehaviour
 {
     private string textShown;
     private int textBoxAmount, currentBox, newBox;
-    private static int runeAmount = 2;
+    private static int runeAmount;
 
     [SerializeField] private List<string> textList;
     [SerializeField] private TextMeshProUGUI target;
+    [SerializeField] private bool final;
 
     void Start()
     {
         textBoxAmount = textList.Count;
+
+        if (final)
+        {
+            textList.Clear();
+            textList.Add("*click*");
+            textBoxAmount = 1;
+            StartCoroutine(Speech());
+        }
+
     }
 
     public void Talk()
