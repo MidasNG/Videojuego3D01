@@ -9,9 +9,11 @@ public class ExtraMessages : MonoBehaviour
     private int textBoxAmount, currentBox, newBox;
     private static int runeAmount;
 
+    [SerializeField] private bool final;
+    [SerializeField] private AudioClip doorSound;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private List<string> textList;
     [SerializeField] private TextMeshProUGUI target;
-    [SerializeField] private bool final;
 
     void Start()
     {
@@ -19,8 +21,10 @@ public class ExtraMessages : MonoBehaviour
 
         if (final)
         {
+            if (audioSource != null && doorSound != null) audioSource.PlayOneShot(doorSound);
+
             textList.Clear();
-            textList.Add("*click*");
+            textList.Add("¡Te he pillado, aventurero!");
             textBoxAmount = 1;
             StartCoroutine(Speech());
         }
