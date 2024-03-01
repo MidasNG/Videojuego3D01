@@ -8,7 +8,7 @@ public class Interact : MonoBehaviour
 
     private void Update()
     {
-        if (Physics.SphereCast(transform.position - transform.rotation * new Vector3(0, 0, 2f) + new Vector3(0, 1, 0), 2f, transform.forward, out RaycastHit hit, 2f) && hit.collider.gameObject.GetComponent<Interactive>() != null && interactText != null && playerCam.enabled == true && Time.timeScale == 1)
+        if (Physics.SphereCast(transform.position - transform.rotation * new Vector3(0, 0, 2f) + new Vector3(0, 1, 0), 2f, transform.forward, out RaycastHit hit, 2f) && hit.collider.GetComponent<Interactive>() != null && interactText != null && playerCam.enabled == true && Time.timeScale == 1 && !(hit.collider.GetComponent<Rune>() != null && hit.collider.GetComponent<Rune>().CheckActivation()))
         {
             interactText.text = "E";
         }

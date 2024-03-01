@@ -26,9 +26,10 @@ public class Dialogue : Interactive
         {
             player.GetComponent<PlayerControl>().DialogueFreeze(true);
             speaking = StartCoroutine(Speech());
+            player.GetComponent<PlayerInput>().SwitchCurrentActionMap("dialogueActions");
+
             if (targetCamera != null && playerCamera != null)
             {
-                player.GetComponent<PlayerInput>().SwitchCurrentActionMap("dialogueActions");
                 targetCamera.enabled = true;
                 playerCamera.enabled = false;
             }
@@ -36,7 +37,7 @@ public class Dialogue : Interactive
 
         else if (newBox < textBoxAmount - 1) newBox++;
 
-        else if (targetCamera != null && playerCamera != null)
+        else
         {
             newBox = 0;
 
@@ -49,8 +50,11 @@ public class Dialogue : Interactive
             player.GetComponent<PlayerControl>().DialogueFreeze(false);
             player.GetComponent<PlayerInput>().SwitchCurrentActionMap("normalActions");
 
-            targetCamera.enabled = false;
-            playerCamera.enabled = true;
+            if (targetCamera != null && playerCamera != null)
+            {
+                targetCamera.enabled = false;
+                playerCamera.enabled = true;
+            }
         }
     }
 

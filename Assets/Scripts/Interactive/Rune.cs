@@ -13,7 +13,7 @@ public class Rune : Interactive
     [SerializeField] private GameObject player;
     [SerializeField] private AudioSource clipSource;
     [SerializeField] private TrapActivation targetTrap;
-    [SerializeField] private GameObject redRune, blueRune;
+    [SerializeField] private GameObject redRune, blueRune, redPillar, bluePillar;
     [SerializeField] private Camera targetCamera, playerCamera;
 
    public override void Interact()
@@ -39,12 +39,18 @@ public class Rune : Interactive
             playerCamera.enabled = false;
             player.GetComponent<PlayerInput>().DeactivateInput();
 
+            if (clipSource != null && clip != null) clipSource.PlayOneShot(clip);
+
             yield return new WaitForSeconds(2.5f);
             if (redRune != null && blueRune != null)
             {
                 redRune.SetActive(false);
-                if (clipSource != null && clip != null) clipSource.PlayOneShot(clip);
                 blueRune.SetActive(true);
+            }
+            if (redPillar != null && bluePillar != null)
+            {
+                redPillar.SetActive(false);
+                bluePillar.SetActive(true);
             }
             yield return new WaitForSeconds(2.5f);
 
@@ -62,5 +68,11 @@ public class Rune : Interactive
         }
 
         yield return null;
+
+    }
+
+    public bool CheckActivation()
+    {
+        return activated;
     }
 }

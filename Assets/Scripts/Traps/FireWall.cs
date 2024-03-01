@@ -29,7 +29,7 @@ public class FireWall : TrapActivation
         float t = 0;
         while (true)
         {
-            if (t >= 11) break;
+            if (t >= 13) break;
             transform.Translate(new Vector3(0, 0, 6 * Time.deltaTime));
             t += Time.deltaTime;
             yield return new WaitForEndOfFrame();
